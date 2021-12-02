@@ -1,7 +1,11 @@
 const fs = require("fs");
 
 const input = fs.readFileSync("./input", "utf-8").split("\n").map(parseFloat);
-const reduced = input.reduce(
+const reduced = input
+.map((_, i, arr) => {
+  return arr.slice(i, i + 3).reduce((sum, e) => sum + e, 0);
+})
+.reduce(
   (reduced, curr) => {
     if (reduced?.prev === null) {
       reduced.prev = curr;
