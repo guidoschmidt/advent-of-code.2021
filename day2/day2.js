@@ -1,10 +1,7 @@
-const fs = require("fs");
-const path = require("path");
+const common = require("../common.js");
 
-const inputPath = path.join(__dirname, "input");
-const input = fs
-  .readFileSync(inputPath, "utf8")
-  .split("\n")
+const input = common
+  .readInput(__dirname)
   .map((el) => el.split(" "))
   .map((arr) => ({ dir: arr[0], units: parseFloat(arr[1]) }));
 
