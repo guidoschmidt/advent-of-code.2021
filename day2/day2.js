@@ -10,19 +10,21 @@ const input = fs
 
 const result = input.reduce(
   (pos, cmd) => {
-    console.log(cmd)
     switch (cmd.dir) {
-      case "up":
-        pos.depth -= cmd.units;
-        return pos;
       case "down":
-        pos.depth += cmd.units;
+        pos.aim += cmd.units;
+        return pos;
+      case "up":
+        pos.aim -= cmd.units;
         return pos;
       case "forward":
         pos.horizontal += cmd.units;
+        pos.depth += pos.aim * cmd.units;
+        return pos;
+      default:
         return pos;
     }
   },
-  { depth: 0, horizontal: 0 }
+  { depth: 0, horizontal: 0, aim: 0 }
 );
 console.log(result.depth * result.horizontal);
