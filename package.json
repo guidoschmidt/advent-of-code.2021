@@ -4,7 +4,8 @@
   "description": "",
   "main": "day1.js",
   "scripts": {
-    "start": "node day1.js"
+    "day1": "node day1/day1.js",
+    "day2": "node day2/day2.js"
   },
   "keywords": [],
   "author": "",
