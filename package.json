@@ -6,7 +6,8 @@
   "scripts": {
     "day1": "node day1/day1.js",
     "day2": "node day2/day2.js",
-    "day3": "node day3/day3.js"
+    "day3": "node day3/day3.js",
+    "day4": "node day4/day4.js"
   },
   "keywords": [],
   "author": "",
