@@ -39,20 +39,33 @@ input.forEach((row) => {
     for (let y = startAt.y; y <= endAt.y; y++) {
       viz[y][startAt.x]++;
     }
-  }
-  if (startAt.x === endAt.x && startAt.y > endAt.y) {
+  } else if (startAt.x === endAt.x && startAt.y > endAt.y) {
     for (let y = startAt.y; y >= endAt.y; y--) {
       viz[y][startAt.x]++;
     }
-  }
-  if (startAt.y === endAt.y && startAt.x < endAt.x) {
+  } else if (startAt.y === endAt.y && startAt.x < endAt.x) {
     for (let x = startAt.x; x <= endAt.x; x++) {
       viz[startAt.y][x]++;
     }
-  }
-  if (startAt.y === endAt.y && startAt.x > endAt.x) {
+  } else if (startAt.y === endAt.y && startAt.x > endAt.x) {
     for (let x = startAt.x; x >= endAt.x; x--) {
       viz[startAt.y][x]++;
+    }
+  } else if (startAt.y < endAt.y && startAt.x < endAt.y) {
+    for (let { x, y } = startAt; x <= endAt.x && y <= endAt.y; x++, y++) {
+      viz[x][y]++;
+    }
+  } else if (startAt.y > endAt.y && startAt.x > endAt.x) {
+    for (let { x, y } = startAt; x >= endAt.x && y >= endAt.y; x--, y--) {
+      viz[x][y]++;
+    }
+  } else if (startAt.y > endAt.y && startAt.x < endAt.x) {
+    for (let { x, y } = startAt; x <= endAt.x && y >= endAt.y; x++, y--) {
+      viz[x][y]++;
+    }
+  } else if (startAt.y < endAt.y && startAt.x > endAt.x) {
+    for (let { x, y } = startAt; x >= endAt.x && y <= endAt.y; x--, y++) {
+      viz[x][y]++;
     }
   }
 });
